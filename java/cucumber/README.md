@@ -1,25 +1,56 @@
-# Java cucumber
+---
+title: Tic Tac Toe
+draft: false
+date: "2021-11-29"
+tags:
+  - game
+---
 
-A minimal setup with Java [Cucumber](https://cucumber.io/docs/guides/10-minute-tutorial/) to get you started.
+## About this kata
 
-You can use [maven](https://maven.apache.org/)
+Like many game kata, it's a good introduction to [double loop TDD](/howto/double-loop-tdd) or [BDD](/howto/bdd).
 
-## Running Tests
+### Rules
 
-To execute the tests run `mvn test` or run the tests from the IDE you are using
+The rules of the tic tac toe game are the following:
 
-## IDEA hint
+* a game is over when all fields are taken
+* a game is over when all fields in a column are taken by a player
+* a game is over when all fields in a row are taken by a player
+* a game is over when all fields in a diagonal are taken by a player
+* a player can take a field if not already taken
+* players take turns taking fields until the game is over
+* there are two player in the game (X and O)
 
-in order to display scenario outline steps correctly: ![](docs/feature_steps.png)
+## Suggested Test Cases
 
-use **IDEA >= 2019.3** and click on the feature files, or the package with in **src/test/resources** to run all features
+```
+Given this game board
 
-![](docs/run_all_features.png)
++---+---+---+
+| 1 | 2 | 3 |
++---+---+---+
+| 4 | 5 | 6 |
++---+---+---+
+| 7 | 8 | 9 |
++---+---+---+
 
-## Test Libraries Available from the Get-Go
+And it's the turn of player X
+When it play on cell 5
+Then the board is now 
 
-- [Cucumber 5.1.2](https://github.com/cucumber/cucumber-jvm/tree/v5.1.2)
++---+---+---+
+| 1 | 2 | 3 |
++---+---+---+
+| 4 | X | 6 |
++---+---+---+
+| 7 | 8 | 9 |
++---+---+---+
 
-This repo was tested with idea, if you encounter problems please open an issue or send a pull request.
+And it's not the end of game.
 
-Have fun!
+```
+
+# Links
+
+* One solution in GoLang : https://gitlab.com/tclavier/tic-tac-toe-golang
