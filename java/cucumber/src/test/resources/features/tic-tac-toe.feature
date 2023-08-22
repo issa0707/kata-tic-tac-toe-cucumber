@@ -25,15 +25,16 @@ Feature: tic-tac-toe game
       | 7 | 8 | 9 |
     And it's not the end of game.
 
-  Scenario: TODO
+  Scenario: O plays after X
     Given this board
-      | 1 | 2 | 3 |
-      | 4 | 5 | 6 |
-      | 7 | 8 | 9 |
-    And it's the turn of player X
-    When it play on cell 5
-    Then the board is now
       | 1 | 2 | 3 |
       | 4 | X | 6 |
       | 7 | 8 | 9 |
+    # Choix de design à faire?
+    # And it's the turn of player O
+    When it play on cell 7
+    Then the board is now
+      | 1 | 2 | 3 |
+      | 4 | X | 6 |
+      | O | 8 | 9 |
     And it's not the end of game.
