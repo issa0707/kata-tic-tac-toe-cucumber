@@ -28,24 +28,25 @@ public class Board {
                     return acc;
                 });
 
-        System.out.println("");
-        // this.fields = truc;
-    }
-
-    public void setPlayersTurnToX() {
-
     }
 
     public void playerPlays(int fieldNumber) {
 
+        // convertir fieldNumber en index de collection
+        // 1 -> première position de la collection
+        // 1 -> 0
+        // mettre "X"
+
+        //fieldNumber = 1
+        int indexOfMyList = fieldNumber - 1;
+        fields.set(indexOfMyList,"X");
     }
 
-    public Boolean isEndOfGame() {
-        return null;
+    public boolean isEndOfGame() {
+        return false;
     }
 
     public List<List<String>> listRepresentation() {
-
         // Arrays
         // - collect, tolist, join ...
         //   - Collectors.
@@ -53,7 +54,7 @@ public class Board {
         // - flatMap
         // - forEach
         // - reduce
-        // - mapmulti -> dans l'autre sens?
+        // - mapmulti -> dans l'autre sens? ==> non
 
         // protonpack
         // vavr

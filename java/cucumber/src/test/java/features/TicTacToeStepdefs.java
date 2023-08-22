@@ -10,7 +10,6 @@ import java.util.List;
 
 import static java.util.stream.Collectors.joining;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class TicTacToeStepdefs {
     private Board board;
@@ -37,6 +36,7 @@ public class TicTacToeStepdefs {
      *   ["7","8","9"],
      * ]
      * </pre>
+     *
      * @param boardRepresentation visual representation of a tic tac toe board
      */
     @Given("this board")
@@ -46,7 +46,6 @@ public class TicTacToeStepdefs {
 
     @And("it's the turn of player X")
     public void itSTheTurnOfPlayerX() {
-        board.setPlayersTurnToX();
     }
 
     @When("it play on cell {int}")
@@ -56,13 +55,13 @@ public class TicTacToeStepdefs {
 
     @Then("the board is now")
     public void theBoardIsNow(List<List<String>> expectedBoardRepresentation) {
-        assertEquals( formatBoard(expectedBoardRepresentation), formatBoard(board.listRepresentation()));
+        assertEquals(formatBoard(expectedBoardRepresentation), formatBoard(board.listRepresentation()));
     }
 
     private String formatBoard(List<List<String>> board) {
         return board.stream()
                 .map(rows -> rows.stream()
-                        .collect(joining(" | ","| "," |")))
+                        .collect(joining(" | ", "| ", " |")))
                 .collect(joining("\n"));
     }
 

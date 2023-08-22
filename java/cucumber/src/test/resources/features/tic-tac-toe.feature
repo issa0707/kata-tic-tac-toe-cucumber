@@ -12,7 +12,20 @@ Feature: tic-tac-toe game
   TODO list :
   - assertion : comparer des boards
 
-  Scenario: PLay on non taken field
+  Scenario: Play on non taken field
+    Given this board
+      | 1 | 2 | 3 |
+      | 4 | 5 | 6 |
+      | 7 | 8 | 9 |
+    And it's the turn of player X
+    When it play on cell 5
+    Then the board is now
+      | 1 | 2 | 3 |
+      | 4 | X | 6 |
+      | 7 | 8 | 9 |
+    And it's not the end of game.
+
+  Scenario: TODO
     Given this board
       | 1 | 2 | 3 |
       | 4 | 5 | 6 |
