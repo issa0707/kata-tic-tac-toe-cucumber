@@ -1,24 +1,56 @@
-# kata-bootstraps
+---
+title: Tic Tac Toe
+draft: false
+date: "2021-11-29"
+tags:
+  - game
+---
 
-[![java-ci-badge]][ci-actions]
+## About this kata
 
+Like many game kata, it's a good introduction to [double loop TDD](/howto/double-loop-tdd) or [BDD](/howto/bdd).
 
-Empty projects for e.g. Katas with testing support in different languages
-(usually with a failing test, in order to know where to start)
+### Rules
 
-On the top level you can find different languages that are supported.
+The rules of the tic tac toe game are the following:
 
-On the second level (in a particular language's directory) you'll find
-different testing frameworks that are supported.
+* a game is over when all fields are taken
+* a game is over when all fields in a column are taken by a player
+* a game is over when all fields in a row are taken by a player
+* a game is over when all fields in a diagonal are taken by a player
+* a player can take a field if not already taken
+* players take turns taking fields until the game is over
+* there are two player in the game (X and O)
 
-In each directory for a particular framework, there is always `README.md` file
-that contains various useful information. At minimum it contains the
-information on how to install the dependencies and run the tests.
+## Suggested Test Cases
 
-You are welcome to contribute by submitting likewise a min setup for your language or framework of choice with a pull request. If possible please also create a [github workflow](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/configuring-a-workflow#in-this-article).
+```
+Given this game board
 
-----
-[Cookiecutter](https://github.com/audreyr/cookiecutter) has a similar goal and also supports multiple languages for setting up a bare project.
++---+---+---+
+| 1 | 2 | 3 |
++---+---+---+
+| 4 | 5 | 6 |
++---+---+---+
+| 7 | 8 | 9 |
++---+---+---+
 
-[java-ci-badge]:../../../kata-bootstraps/workflows/Java%20CI/badge.svg "CI build status"
-[ci-actions]:../../../kata-bootstraps/actions
+And it's the turn of player X
+When it play on cell 5
+Then the board is now 
+
++---+---+---+
+| 1 | 2 | 3 |
++---+---+---+
+| 4 | X | 6 |
++---+---+---+
+| 7 | 8 | 9 |
++---+---+---+
+
+And it's not the end of game.
+
+```
+
+# Links
+
+* One solution in GoLang : https://gitlab.com/tclavier/tic-tac-toe-golang
