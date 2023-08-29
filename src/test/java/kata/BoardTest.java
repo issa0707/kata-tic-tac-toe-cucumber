@@ -71,15 +71,31 @@ public class BoardTest {
     public class Player_plays {
 
         @Test
-        void X_on_non_taken_field_1() {
+        void X_plays_first_on_non_taken_field() {
             var board = emptyBoard();
             board.playerPlays(1);
             assertThat(board.listRepresentation())
-                    .isEqualTo(List.of(
-                            List.of("X", "2", "3"),
-                            List.of("4", "5", "6"),
-                            List.of("7", "8", "9")
-                    ));
+                .isEqualTo(List.of(
+                    List.of("X", "2", "3"),
+                    List.of("4", "5", "6"),
+                    List.of("7", "8", "9")
+                ));
+        }
+
+        @Test
+        void O_plays_second_on_non_taken_field() {
+            var board = new Board(List.of(
+                List.of("X", "2", "3"),
+                List.of("4", "5", "6"),
+                List.of("7", "8", "9")
+            ));
+            board.playerPlays(2);
+            assertThat(board.listRepresentation())
+                .isEqualTo(List.of(
+                    List.of("X", "O", "3"),
+                    List.of("4", "5", "6"),
+                    List.of("7", "8", "9")
+                ));
         }
     }
 

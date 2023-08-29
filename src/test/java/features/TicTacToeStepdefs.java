@@ -9,6 +9,7 @@ import kata.Board;
 import java.util.List;
 
 import static java.util.stream.Collectors.joining;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TicTacToeStepdefs {
@@ -44,9 +45,9 @@ public class TicTacToeStepdefs {
         this.board = new Board(boardRepresentation);
     }
 
-    @And("it's the turn of player X")
-    public void itSTheTurnOfPlayerX() {
-    }
+//    @And("it's the turn of player X")
+//    public void itSTheTurnOfPlayerX() {
+//    }
 
     @When("it play on cell {int}")
     public void itPlayOnCell(int fieldNumber) {
@@ -55,7 +56,8 @@ public class TicTacToeStepdefs {
 
     @Then("the board is now")
     public void theBoardIsNow(List<List<String>> expectedBoardRepresentation) {
-        assertEquals(formatBoard(expectedBoardRepresentation), formatBoard(board.listRepresentation()));
+        assertThat(formatBoard(expectedBoardRepresentation))
+                .isEqualTo(formatBoard(board.listRepresentation()));
     }
 
     private String formatBoard(List<List<String>> board) {
@@ -68,8 +70,12 @@ public class TicTacToeStepdefs {
     @And("it's not the end of game.")
     public void itSNotTheEndOfGame() {
         Boolean endOfGame = board.isEndOfGame();
-        assertEquals(false, endOfGame);
+        assertThat(endOfGame).isFalse();
     }
 
 
+//    @And("it's the turn of player {string}")
+//    public void itSTheTurnOfPlayerX(String playerSymbol) {
+//
+//    }
 }
